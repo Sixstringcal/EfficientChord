@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">EfficientChord</string>
+    <string name="title">"Efficient Chord"</string>
+    <string name="newF">"New"</string>
+    <string name="load">"Load"</string>
+    <string name="action_settings">\"D\"</string>
+</resources>
