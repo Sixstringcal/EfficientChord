@@ -50,7 +50,7 @@ public class Chord{
     *     The array holds accidentals so things like sharp 13 and flat 4 notes that affect the chord.
     *     The array is a string because it needs to have information on if it is sharp or flat.
     */
-    private String[] accidental = new String[999];
+    private int[] accidental = new int[4];
 
        // This method gets the type of chord and returns it.
     public String getType(){
@@ -81,17 +81,48 @@ public class Chord{
     }
 
        // This sets the accidentals for the chord to the values passed in
-    public void setAccidentals(String tempAccidentals, int times){
-
-       // This sets the accidental with the time to the accidentals passed in by the time passed in.
-        accidental[times]= tempAccidentals;
+    public void setAccidentals(String[][] tempAccidentals){
+        for(int i = 0; i<4; i++){
+            switch(tempAccidentals[1][i]){
+                case "A":
+                    accidental[i] = 0;
+                    break;
+                case "B":
+                    accidental[i] = 2;
+                    break;
+                case "C":
+                    accidental[i] = 3;
+                    break;
+                case "D":
+                    accidental[i] = 5;
+                    break;
+                case "E":
+                    accidental[i] = 7;
+                    break;
+                case "F":
+                    accidental[i] = 8;
+                    break;
+                case "G":
+                    accidental[i] = 10;
+                    break;
+            }
+            if(tempAccidentals[0][i] == "#"){
+                accidental[i] = accidental[i] + 1;
+            }
+            else if(tempAccidentals[0][i] == "b" && accidental[i] > 0){
+                accidental[i] = accidental[i] - 1;
+            }
+            else if(tempAccidentals[0][i] == "b" && accidental[i] == 0){
+                accidental[i] = 11;
+            }
+        }
     }
 
        // This gets the accidentals for the chord and returns it by the accidental passed in.
-    public String getAccidentals(int which){
+    public int[] getAccidentals(){
 
        // This returns the accidental of the chord given the number passed in.
-        return accidental[which];
+        return accidental;
     }
 
        // This method will make the chord given the information given about the chord and the information the app has created.

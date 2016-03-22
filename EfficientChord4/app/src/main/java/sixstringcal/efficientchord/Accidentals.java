@@ -2,7 +2,7 @@ package sixstringcal.efficientchord;
 
        //This is the class for accidentals which is a subclass of chord.
 public class Accidentals extends Chord {
-           private int[] tempStore = new int[999];
+           private int[] tempStore = new int[4];
        // This integer array of played notes is for calculating the notes played and is at 999 just in case.
     private int[] playedNotes = new int[999];
 
