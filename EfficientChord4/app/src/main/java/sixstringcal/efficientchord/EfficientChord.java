@@ -1,3 +1,7 @@
+/**
+ * Probably won't use this
+ */
+
 package sixstringcal.efficientchord;
 
 // this is the class with the main method.

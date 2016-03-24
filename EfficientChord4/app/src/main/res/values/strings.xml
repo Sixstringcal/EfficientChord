@@ -38,4 +38,12 @@
     <string name="accidental3">""</string>
     <string name="accidental4">"</string>
     <string name="maxAccident">""</string>
+    <string name="chord1">"B# Major b3 #13 #5 b4"</string>
+    <string name="chord2">"B# Major b3 #13 #5 b4"</string>
+    <string name="chord3">"B# Major b3 #13 #5 b4"</string>
+    <string name="chord4">"B# Major b3 #13 #5 b4"</string>
+    <string name="chord5">"B# Major b3 #13 #5 b4"</string>
+    <string name="chord6">"B# Major b3 #13 #5 b4"</string>
+    <string name="chord7">"B# Major b3 #13 #5 b4"</string>
+    <string name="chord8">"B# Major b3 #13 #5 b4"</string>
 </resources>

@@ -84,19 +84,16 @@
         android:layout_height="wrap_content"
         android:text="@string/MAJ"
         android:id="@+id/radioButton8"
-        android:layout_below="@+id/editText"
-        android:layout_alignParentStart="true"
         android:layout_marginTop="39dp"
-        android:checked="false"
-        android:clickable="true" />
+        android:checked="true"
+        android:clickable="true"
+        checked="true" />
 
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/MIN"
         android:id="@+id/radioButton9"
-        android:layout_alignTop="@+id/radioButton8"
-        android:layout_toEndOf="@+id/radioButton8"
         android:checked="false"
         android:clickable="true" />
 
@@ -106,8 +103,6 @@
         android:text="@string/DIM"
         android:id="@+id/radioButton10"
         android:checked="false"
-        android:layout_alignTop="@+id/radioButton9"
-        android:layout_toEndOf="@+id/editText"
         android:clickable="true" />
 
     <RadioButton
@@ -115,8 +110,6 @@
         android:layout_height="wrap_content"
         android:text="@string/AUG"
         android:id="@+id/radioButton11"
-        android:layout_below="@+id/radioButton8"
-        android:layout_alignEnd="@+id/radioButton9"
         android:checked="false"
         android:clickable="true" />
     </RadioGroup>

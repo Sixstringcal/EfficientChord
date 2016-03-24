@@ -16,6 +16,9 @@ import java.util.ArrayList;
 import static sixstringcal.efficientchord.R.layout.activity_main22;
 import static sixstringcal.efficientchord.R.layout.activity_set_chord;
 
+/**
+ * This is the class to create the frame/activity for the chord creator page/frame.
+ */
 public class Main22Activity extends AppCompatActivity implements View.OnClickListener {
     Button addAccidentals;
     Button addInterval;
@@ -25,17 +28,26 @@ public class Main22Activity extends AppCompatActivity implements View.OnClickLis
     RadioButton naturalBttn;
     RadioButton sharpBttn;
     RadioButton flatBttn;
+    RadioButton minorBttn;
+    RadioButton majorBttn;
+    RadioButton diminishedBttn;
     Button viewChordsButton;
     String accidentalState;
     String[][] storedAccidentals = new String[2][4];
     RadioGroup typeGroup;
     Switch sharpSwitch;
+    RadioButton augmentedBttn;
     RadioGroup rootGroup;
     int maxNumberOfChords = 999999;
     int[][][] chords = new int[3][maxNumberOfChords+1][];
     int currentChordNumber;
+    String typeOfChord = "major";
+    int[] typeInt = {0};
 
     @Override
+    /**
+     * This just creates the frame/activity/window.
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(activity_set_chord);
@@ -45,6 +57,14 @@ public class Main22Activity extends AppCompatActivity implements View.OnClickLis
         sharpSwitch = (Switch) findViewById(R.id.switch1);
         sharpSwitch.bringToFront();
         accidentalState = "♮";
+        augmentedBttn = (RadioButton) findViewById(R.id.radioButton11);
+        augmentedBttn.setOnClickListener(this);
+        diminishedBttn = (RadioButton) findViewById(R.id.radioButton10);
+        diminishedBttn.setOnClickListener(this);
+        majorBttn = (RadioButton) findViewById(R.id.radioButton8);
+        majorBttn.setOnClickListener(this);
+        minorBttn = (RadioButton) findViewById(R.id.radioButton9);
+        minorBttn.setOnClickListener(this);
         viewChordsButton = (Button) findViewById(R.id.button2);
         viewChordsButton.bringToFront();
         typeGroup = (RadioGroup) findViewById(R.id.radioGroups);
@@ -69,11 +89,21 @@ public class Main22Activity extends AppCompatActivity implements View.OnClickLis
 
 
 
+    /**
+     * This stores the type of accidental in the array to decide later on if it is sharp or flat (+/-1 in integer notation).
+     * @param type is stored in the storedAccidentals array.
+     */
     public void setCurrentAccidental(String type){
         accidentalState = type;
         storedAccidentals[0][number-4] = type;
     }
 
+
+    /**
+     * This creates the text for the currently invisible textViews so they can be seen with the current amount of accidentals.
+     * Once four accidentals have been passed in, it alerts the user that there cannot be any more accidentals passed in.
+     * It also updates the storedAccidentals variable and puts the new accidentals in there.
+     */
     private void addAccidentalsClicked(){
         switch (number){
             case 4:
@@ -103,30 +133,60 @@ public class Main22Activity extends AppCompatActivity implements View.OnClickLis
 
     }
 
+
+    /**
+     * This will make it so the current interval is applied
+     */
     private void addIntervalClicked(){
 
     }
 
+
+    /**
+     * This just makes it so that once the Add Chord button is clicked that the information will be created for the chords.
+     */
     private void addChordClicked(){
         if(currentChordNumber < maxNumberOfChords+1) {
             Type firstType = new Type();
 
-            firstType.setType("minor");
+
+            firstType.setType(typeOfChord);
 
             firstType.findNotes();
 
             Accidentals firstAccidentals = new Accidentals();
             firstAccidentals.setAccidentals(storedAccidentals);
             firstAccidentals.findRelations(5);
+            if(typeOfChord == "major"){
+                typeInt[0] = 0;
+            }
+            else if(typeOfChord == "minor"){
+                typeInt[0] = 1;
+            }
+            else if(typeOfChord == "diminished"){
+                typeInt[0] = 2;
+            }
+            else if(typeOfChord == "augmented"){
+                typeInt[0] = 3;
+            }
             chords[0][currentChordNumber] = firstAccidentals.getAccidentals();
+            chords[1][currentChordNumber] = typeInt;
         }
     }
 
+
+    /**
+     * This lets the user look at what chords they have created so far and starts the activity to view them.
+     */
     private void viewChordsClicked(){
         startActivity(new Intent("sixstringcal.efficientchord.ChordDemo"));
     }
 
     @Override
+    /**
+     * This just handles what happens on each button/radioButton/etc.
+     * Basically just a bunch of checks to decide what to do.
+     */
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.button4:
@@ -149,6 +209,18 @@ public class Main22Activity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.radioButton2:
                 setCurrentAccidental("b");
+                break;
+            case R.id.radioButton9:
+                typeOfChord = "minor";
+                break;
+            case R.id.radioButton8:
+                typeOfChord = "major";
+                break;
+            case R.id.radioButton10:
+                typeOfChord = "diminished";
+                break;
+            case R.id.radioButton11:
+                typeOfChord = "augmented";
                 break;
         }
     }

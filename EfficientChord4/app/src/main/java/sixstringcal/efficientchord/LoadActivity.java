@@ -11,6 +11,9 @@ import android.view.View;
 public class LoadActivity extends AppCompatActivity {
 
     @Override
+    /**
+     * This creates the frame for the activity to load the previous chords used.
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load);

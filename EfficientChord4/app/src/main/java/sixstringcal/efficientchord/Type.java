@@ -1,12 +1,15 @@
 package sixstringcal.efficientchord;
 
-// this is the class for types and is a subclass of chord.
+/**
+ * This is a subclass of chord and decides the Type of chord and the relationships.
+ */
 public class Type extends Chord{
 
-    // this method will display options for the type.
-    public void display(){}
 
-    // this method decides if it is major or minor and sets the relations between notes.  It currently only checks major and minor.
+    /**
+     * This decides what notes based on the type of chord to be used using interval notation.
+     * 0 is not a necessary chord.
+     */
     public void findNotes(){
 
         // This checks if it is major.
@@ -22,6 +25,12 @@ public class Type extends Chord{
 
             //this sets the relationship to that of a minor.
             super.setTypeRel(new int[]{0, 3, 7});
+        }
+        else if(super.getType() == "diminished"){
+            super.setTypeRel(new int[]{0,3,6});
+        }
+        else if(super.getType() == "augmented"){
+            super.setTypeRel(new int[]{0,4,8});
         }
     }
 }

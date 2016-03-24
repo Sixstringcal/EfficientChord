@@ -1,28 +1,33 @@
 package sixstringcal.efficientchord;
 
-//Superclass
+/**
+ * This is the superclass of the application.
+ * This is where all of the gets and sets are for all the other subclasses as well as some others.
+ */
 public class Chord{
 
     /*
     *     Creates the variables needed.
-    *     They are strings because it works easier for identification.
-    *     Type decides the type of the chord such as major or minor.
-    *     Interval decides things like 7 chords and 13 chords.
-    *     I cannot find a way to implement an interface, it just doesn't seem like it makes sense in this situation.
     */
     private String type, interval;
 
     //keeps track of length.
     private int length = 0;
 
-    // sets length.
+    /**
+     * This sets the length to the variable aL that is passed in.
+     * @param aL is used to set the length to it.
+     */
     public void setLength(int aL){
 
         //sets length.
         length=aL;
     }
 
-    //gets the length.
+    /**
+     * This returns the length.  It is mainly used for the logic of the application.
+     * @return length is used for computations for the chord and the application as a whole.
+     */
     public int getLength(){
 
         // gets length
@@ -52,35 +57,57 @@ public class Chord{
     */
     private int[] accidental = new int[4];
 
-       // This method gets the type of chord and returns it.
+    /**
+     * This is used to return the type to help with the logic and for the type of chord to be displayed to the user.
+     * @return type to the user and also to help with the logic of the application.
+     */
     public String getType(){
 
        // This returns the value of type.
         return type;
     }
 
-       // This sets the type of the chord to the value passed in.
+    /**
+     * This sets the chord type to the tempType passed in.
+     * @param tempType is what the type of the chord is set to.
+     */
     public void setType(String tempType){
 
        // This sets the type by the value passed in.
         type= tempType;
     }
 
-       // This gets the interval for the chord and returns it.
+
+    /**
+     * This gets the interval for the chord and returns it.
+     * @return interval to be shown to the user and for some logic in the application.
+     */
     public String getInterval(){
 
        // This returns the value of interval.
         return interval;
     }
 
-       // This sets the interval of the chord to the value passed in.
+
+    /**
+     * This sets the interval of the chord to the value of aInterval
+     * @param aInterval is what the interval is set to.
+     */
     public void setInterval(String aInterval){
 
        // This sets the interval to the value passed in.
         interval = aInterval;
     }
 
-       // This sets the accidentals for the chord to the values passed in
+
+
+
+    /**
+     * This sets the accidentals for the chord to tempAccidentals.
+     * This also converts the accidentals into integer notation which is easier to use in an application.
+     * This also will lead to nicer chord names in case the user put it in not nicely, example: B# = C.
+     * @param tempAccidentals is what accidentals is set to.
+     */
     public void setAccidentals(String[][] tempAccidentals){
         for(int i = 0; i<4; i++){
             switch(tempAccidentals[1][i]){
@@ -118,44 +145,64 @@ public class Chord{
         }
     }
 
-       // This gets the accidentals for the chord and returns it by the accidental passed in.
+
+
+    /**
+     * This returns the value of the accidentals.
+     * @return accidental will be returned.
+     */
     public int[] getAccidentals(){
 
        // This returns the accidental of the chord given the number passed in.
         return accidental;
     }
 
-       // This method will make the chord given the information given about the chord and the information the app has created.
+
+
+    /**
+     * This will make the chord based on what information has been passed in by the user about the chord.
+     */
     public void makeCord(){
 
-       //  Currently empty because I haven't made this part yet.
     }
 
-       //  This reads the chord from the files that will be used that I have not implemented yet.
+
+
+    /**
+     * This will read the chords from a stored and saved file from the device.
+     */
     public void readChord(){
-       // This will get the notes from the file and is not done yet.
+
     }
 
-       // This will display the chord.
-    public void displayChord(){
-       // This is not done.
-    }
 
-       // This will send the notes.
+
+    /**
+     * this will return the notes so the logic of the application can happen.
+     * @return notes so the program will work.
+     */
     public int[] getNotes(){
 
-       // This returns the notes.
         return notes;
     }
 
-       // This just gets the type relationships.
+
+
+    /**
+     * This returns the relationship of the chord in integer notation.
+     * @return typeRel for the logic of the application.
+     */
     public int[] getTypeRel(){
 
-       // This returns the type relationship.
         return typeRel;
     }
 
-       // This sets the type relationships.
+
+
+    /**
+     * This sets the typeRel to aTypeRel for logic purposes of the application.
+     * @param aTypeRel is used to set the type relationship.
+     */
     public void setTypeRel(int[] aTypeRel){
 
        // sets the type relationship.

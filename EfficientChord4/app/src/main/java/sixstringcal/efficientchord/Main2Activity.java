@@ -1,3 +1,6 @@
+/**
+ * This is not used to my knowledge.  I think I accidentally created this class.  Oops.
+ */
 package sixstringcal.efficientchord;
 
 import android.os.Bundle;

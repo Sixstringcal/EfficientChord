@@ -1,18 +1,15 @@
 package sixstringcal.efficientchord;
 
-// this is the class for intervals and is a subclass of chord.
+/**
+ * This is a subclass of the Chord class and uses informatino about the interval to help form the chord.
+ */
 public class Interval extends Chord{
 
-    // this decides the interval's effect and is not done.
-    public void decideIntervalEffect(){}
 
-    // this will add the interval for more complex chords.
-    public void addInterval(){
-
-    }
-
-    // this displays the options for intervals.
-    public void display(){
+    /**
+     * This will decide what effect the interval has on the chord
+     */
+    public void decideIntervalEffect(){
 
     }
 }
