@@ -1,36 +1,39 @@
 package sixstringcal.efficientchord;
 
 /**
- * This is a subclass of chord and decides the Type of chord and the relationships.
+ * This is a subclass of chord and decides the Type of chord.
  */
 public class Type extends Chord{
 
+    private int[] notesInChord;
 
     /**
-     * This decides what notes based on the type of chord to be used using interval notation.
-     * 0 is not a necessary chord.
+     * This modulates the existing outline of a chord that is passed in and modifies it given the requirements.
+     * @param existingChord is the rough outline of the existing chord.
+     * @return notesInChord.
      */
-    public void findNotes(){
-
+    public int[] findNotes(int[] existingChord){
+        notesInChord = existingChord;
         // This checks if it is major.
         if (super.getType() == "major"){
-
-            // this sets the relationship to that of a major.
-            super.setTypeRel(new int[]{0, 4, 7});
-
+            notesInChord = existingChord;
         }
 
         // this checks if it is minor.
         else if(super.getType() == "minor"){
+            notesInChord[3] = notesInChord[3] - 1;
+        }
 
-            //this sets the relationship to that of a minor.
-            super.setTypeRel(new int[]{0, 3, 7});
-        }
         else if(super.getType() == "diminished"){
-            super.setTypeRel(new int[]{0,3,6});
+            notesInChord[1] = notesInChord[1]-1;
+            notesInChord[3] = notesInChord[3]-1;
+            notesInChord[4] = notesInChord[4]+2;
         }
+
         else if(super.getType() == "augmented"){
-            super.setTypeRel(new int[]{0,4,8});
+            notesInChord[1] = notesInChord[1]+1;
+            notesInChord[4] = notesInChord[4]+1;
         }
+        return notesInChord;
     }
 }

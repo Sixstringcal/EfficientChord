@@ -31,26 +31,22 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".LoadActivity"
-            android:label="@string/title_activity_load"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".ChordDemo"
+            android:label="@string/app_name"
+            >
             <intent-filter>
-                <action android:name="sixstringcal.efficientchord.LoadActivity" />
+                <action android:name=".Main23Activity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ChordDemo"
-            android:label="@string/title_activity_chord_demo"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".Main23Activity">
             <intent-filter>
                 <action android:name="sixstringcal.efficientchord.ChordDemo" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

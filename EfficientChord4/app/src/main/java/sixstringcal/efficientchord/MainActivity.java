@@ -18,7 +18,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
  */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button newButton;
-    Button loadButton;
     private GoogleApiClient client;
 
 
@@ -31,8 +30,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         newButton = (Button) findViewById(R.id.button5);
         newButton.setOnClickListener(this);
-        loadButton = (Button) findViewById(R.id.button6);
-        loadButton.setOnClickListener(this);
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
@@ -55,11 +52,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // This method creates a settings thing on the side.
         int id = item.getItemId();
 
-        if (id == R.id.action_settings) {
-            return true;
-        }
+        return id == R.id.action_settings || super.onOptionsItemSelected(item);
 
-        return super.onOptionsItemSelected(item);
     }
 
 
@@ -80,15 +74,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     /**
-     * This just listens for the click and decides what method to call when each button is clicked.
+     * This just listens for the click and decides what method to call when the button is clicked.
      */
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button5:
                 newButtonClick();
-                break;
-            case R.id.button6:
-                loadButtonClick();
                 break;
         }
     }

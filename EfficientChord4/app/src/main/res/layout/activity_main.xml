@@ -29,14 +29,4 @@
         android:longClickable="false"
         android:onClick="onClick" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/load"
-        android:id="@+id/button6"
-        android:layout_below="@+id/button5"
-        android:layout_centerHorizontal="true"
-        android:enabled="true"
-        android:clickable="false"
-        android:onClick="onClick" />
 </RelativeLayout>
